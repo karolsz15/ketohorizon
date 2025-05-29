@@ -39,6 +39,12 @@ filesToMove.forEach(file => {
         console.log(`Copied ${file}`);
     } else {
         console.warn(`Warning: ${sourcePath} does not exist`);
+        // If the file doesn't exist in public/, check if it exists in the root
+        if (fs.existsSync(file)) {
+            console.log(`File ${file} already exists in root`);
+        } else {
+            console.error(`Error: ${file} not found in public/ or root`);
+        }
     }
 });
 
