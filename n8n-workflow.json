@@ -1,0 +1,28 @@
+{
+    "nodes": [
+        {
+            "name": "OpenAI",
+            "type": "n8n-nodes-base.openAi",
+            "parameters": {
+                "resource": "completion",
+                "prompt": "Write a SEO-optimized article about {{topic}} for a keto diet website"
+            }
+        },
+        {
+            "name": "MongoDB",
+            "type": "n8n-nodes-base.mongodb",
+            "parameters": {
+                "operation": "insert",
+                "collection": "articles"
+            }
+        },
+        {
+            "name": "Instagram Post",
+            "type": "n8n-nodes-base.instagram",
+            "parameters": {
+                "operation": "create",
+                "caption": "{{generatedCaption}}"
+            }
+        }
+    ]
+} 

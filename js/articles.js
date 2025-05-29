@@ -1,0 +1,1 @@
+const response = await fetch('https://your-api-domain.com/api/articles'); 
