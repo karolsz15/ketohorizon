@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import ArticleCard from '../components/articles/ArticleCard';
+import { getArticles } from '../services/api';
 
 const ArticlesContainer = styled.div`
   padding-top: ${props => props.theme.layout.headerHeight};
@@ -36,30 +38,28 @@ const ArticlesGrid = styled.div`
 
 const Articles = () => {
   const { t } = useTranslation();
+  const { lang } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const articles = [
-    {
-      id: 'keto101',
-      image: '/images/keto-basics.jpg',
-      titleKey: 'articles.keto101.title',
-      descriptionKey: 'articles.keto101.introduction.content',
-      ctaKey: 'articles.essentials.cta'
-    },
-    {
-      id: 'essentials',
-      image: '/images/keto-essentials.jpg',
-      titleKey: 'articles.essentials.title',
-      descriptionKey: 'articles.essentials.description',
-      ctaKey: 'articles.essentials.cta'
-    },
-    {
-      id: 'ingredients',
-      image: '/images/keto-ingredients.jpg',
-      titleKey: 'articles.ingredients.title',
-      descriptionKey: 'articles.ingredients.description',
-      ctaKey: 'articles.ingredients.cta'
-    }
-  ];
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const data = await getArticles(lang);
+        setArticles(data);
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, [lang]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <ArticlesContainer>
@@ -73,7 +73,11 @@ const Articles = () => {
         {articles.map(article => (
           <ArticleCard
             key={article.id}
-            {...article}
+            id={article.attributes.slug}
+            image={`${process.env.REACT_APP_STRAPI_URL}${article.attributes.coverImage.data.attributes.url}`}
+            titleKey={article.attributes.title}
+            descriptionKey={article.attributes.excerpt}
+            ctaKey="articles.essentials.cta"
           />
         ))}
       </ArticlesGrid>

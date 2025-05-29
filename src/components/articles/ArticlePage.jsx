@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import CommentSection from '../comments/CommentSection';
 import SocialShare from './SocialShare';
+import { getArticle } from '../../services/api';
 
 const ArticleContainer = styled.article`
   max-width: ${props => props.theme.layout.maxWidth};
@@ -58,78 +59,37 @@ const ListItem = styled.li`
 
 const ArticlePage = () => {
   const { t } = useTranslation();
-  const { id } = useParams();
+  const { id, lang } = useParams();
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const article = t(`articles.${id}`, { returnObjects: true });
-  
-  if (!article || !article.title) {
-    return (
-      <ArticleContainer>
-        <Title>Article not found</Title>
-      </ArticleContainer>
-    );
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const data = await getArticle(id, lang);
+        setArticle(data.attributes);
+      } catch (error) {
+        console.error('Error fetching article:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticle();
+  }, [id, lang]);
+
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
   return (
     <ArticleContainer>
       <Title>{article.title}</Title>
-
-      {article.introduction && (
-        <Section>
-          <SectionTitle>{article.introduction.title}</SectionTitle>
-          <Content>{article.introduction.content}</Content>
-        </Section>
-      )}
-
-      {article.what_is_keto && (
-        <Section>
-          <SectionTitle>{article.what_is_keto.title}</SectionTitle>
-          <Content>{article.what_is_keto.content}</Content>
-        </Section>
-      )}
-
-      {article.how_ketosis_works && (
-        <Section>
-          <SectionTitle>{article.how_ketosis_works.title}</SectionTitle>
-          <Content>{article.how_ketosis_works.content}</Content>
-        </Section>
-      )}
-
-      {article.benefits && (
-        <Section>
-          <SectionTitle>{article.benefits.title}</SectionTitle>
-          <List>
-            {article.benefits.list.map((benefit, index) => (
-              <ListItem key={index}>{benefit}</ListItem>
-            ))}
-          </List>
-        </Section>
-      )}
-
-      {article.foods && (
-        <Section>
-          <SectionTitle>{article.foods.title}</SectionTitle>
-          <List>
-            {article.foods.allowed.map((food, index) => (
-              <ListItem key={index}>{food}</ListItem>
-            ))}
-          </List>
-          <Content style={{ marginTop: '20px' }}>{article.foods.avoid}</Content>
-        </Section>
-      )}
-
-      {article.conclusion && (
-        <Section>
-          <SectionTitle>{article.conclusion.title}</SectionTitle>
-          <Content>{article.conclusion.content}</Content>
-        </Section>
-      )}
-
+      <Content dangerouslySetInnerHTML={{ __html: article.content }} />
       <SocialShare 
         url={window.location.href}
         title={article.title}
       />
-
       <CommentSection articleId={id} />
     </ArticleContainer>
   );

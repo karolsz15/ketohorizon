@@ -1,7 +1,9 @@
 # Environment variables
 .env
 .env.local
-.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Node
 node_modules/
@@ -52,4 +54,9 @@ pids
 *.tgz
 
 # Yarn Integrity file
-.yarn-integrity 
+.yarn-integrity
+
+# Strapi admin credentials
+/keto-cms/public/uploads/*
+/keto-cms/.tmp
+/keto-cms/.cache 
