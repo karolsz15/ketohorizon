@@ -77,22 +77,22 @@ export default {
     hero: {
       title: 'Colección de Libros Electrónicos Keto'
     },
-    beginner_guide: {
-      title: 'Guía Completa Keto para Principiantes',
-      description: 'Todo lo que necesitas saber para comenzar tu viaje keto con éxito.',
-      price: '19,99€',
-      cta: 'Comprar Ahora'
-    },
-    meal_plan: {
-      title: 'Plan de Comidas Keto de 28 Días',
-      description: 'Un plan completo de 4 semanas con listas de compras y guías de preparación.',
+    science: {
+      title: 'La Ciencia del Keto',
+      description: 'Una inmersión profunda en la biología y ciencia de la cetosis, adaptación a las grasas, producción de cetonas y cómo keto afecta el metabolismo, la salud cerebral y las hormonas.',
       price: '24,99€',
       cta: 'Comprar Ahora'
     },
-    recipes: {
-      title: '100+ Recetas Keto',
-      description: 'Una colección completa de deliciosas recetas compatibles con keto.',
+    meal_prep: {
+      title: 'Preparación de Comidas Keto Simplificada',
+      description: 'Un libro electrónico práctico para personas ocupadas con cocina en lotes, listas de compras semanales y estrategias para ahorrar tiempo y mantenerse en cetosis sin estrés.',
       price: '29,99€',
+      cta: 'Comprar Ahora'
+    },
+    bundle: {
+      title: 'Paquete Completo Keto',
+      description: '¡Obtén La Ciencia del Keto y Preparación de Comidas Keto Simplificada con un 25% de descuento!',
+      price: '39,99€',
       cta: 'Comprar Ahora'
     }
   }

@@ -72,22 +72,22 @@ export default {
     hero: {
       title: 'Keto Ebooks Collection'
     },
-    beginner_guide: {
-      title: 'Complete Keto Beginner Guide',
-      description: 'Everything you need to know to start your keto journey successfully.',
-      price: '$19.99',
-      cta: 'Buy Now'
-    },
-    meal_plan: {
-      title: '28-Day Keto Meal Plan',
-      description: 'A complete 4-week meal plan with shopping lists and prep guides.',
+    science: {
+      title: 'The Science of Keto',
+      description: 'A deep dive into the biology and science of ketosis, fat adaptation, ketone production, and how keto affects metabolism, brain health, and hormones.',
       price: '$24.99',
       cta: 'Buy Now'
     },
-    recipes: {
-      title: '100+ Keto Recipes',
-      description: 'A comprehensive collection of delicious keto-friendly recipes.',
+    meal_prep: {
+      title: 'Keto Meal Prep Made Easy',
+      description: 'A practical ebook for busy people featuring batch-cooking, weekly shopping lists, and time-saving strategies to stay in ketosis without stress.',
       price: '$29.99',
+      cta: 'Buy Now'
+    },
+    bundle: {
+      title: 'Complete Keto Bundle',
+      description: 'Get both The Science of Keto and Keto Meal Prep Made Easy at a 25% discount!',
+      price: '$39.99',
       cta: 'Buy Now'
     }
   }

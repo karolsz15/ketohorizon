@@ -77,22 +77,22 @@ export default {
     hero: {
       title: '生酮饮食电子书系列'
     },
-    beginner_guide: {
-      title: '完整的生酮饮食新手指南',
-      description: '开始您的生酮之旅所需要知道的一切。',
-      price: '¥129',
-      cta: '立即购买'
-    },
-    meal_plan: {
-      title: '28天生酮饮食计划',
-      description: '完整的4周餐饮计划，包含购物清单和准备指南。',
+    science: {
+      title: '生酮科学解析',
+      description: '深入探讨生酮的生物学和科学原理，包括脂肪适应、酮体产生，以及生酮如何影响新陈代谢、大脑健康和激素。',
       price: '¥169',
       cta: '立即购买'
     },
-    recipes: {
-      title: '100+生酮食谱',
-      description: '全面的美味生酮友好食谱集合。',
+    meal_prep: {
+      title: '轻松搞定生酮备餐',
+      description: '为忙碌人士准备的实用电子书，包含批量烹饪、每周购物清单和节省时间的策略，轻松保持生酮状态。',
       price: '¥199',
+      cta: '立即购买'
+    },
+    bundle: {
+      title: '生酮完整套装',
+      description: '购买生酮科学解析和轻松搞定生酮备餐，立享75折优惠！',
+      price: '¥275',
       cta: '立即购买'
     }
   }

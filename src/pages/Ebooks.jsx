@@ -25,6 +25,11 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
+const EbooksSection = styled.section`
+  padding: 60px 0;
+  background: #f8f9fa;
+`;
+
 const EbooksGrid = styled.div`
   max-width: ${props => props.theme.layout.maxWidth};
   margin: 40px auto;
@@ -48,7 +53,7 @@ const EbookCard = styled.div`
 
 const EbookImage = styled.div`
   width: 100%;
-  height: 400px;
+  height: 300px;
   background-image: ${props => `url(${props.image})`};
   background-size: cover;
   background-position: center;
@@ -81,28 +86,16 @@ const Ebooks = () => {
 
   const ebooks = [
     {
-      id: 1,
-      titleKey: 'ebooks.beginner_guide.title',
-      descriptionKey: 'ebooks.beginner_guide.description',
-      priceKey: 'ebooks.beginner_guide.price',
-      ctaKey: 'ebooks.beginner_guide.cta',
-      image: '/images/ebook-beginner.jpg'
+      id: 'science',
+      image: '/images/ebook-science.jpg'
     },
     {
-      id: 2,
-      titleKey: 'ebooks.meal_plan.title',
-      descriptionKey: 'ebooks.meal_plan.description',
-      priceKey: 'ebooks.meal_plan.price',
-      ctaKey: 'ebooks.meal_plan.cta',
-      image: '/images/ebook-meal-plan.jpg'
+      id: 'meal_prep',
+      image: '/images/ebook-meal-prep.jpg'
     },
     {
-      id: 3,
-      titleKey: 'ebooks.recipes.title',
-      descriptionKey: 'ebooks.recipes.description',
-      priceKey: 'ebooks.recipes.price',
-      ctaKey: 'ebooks.recipes.cta',
-      image: '/images/ebook-recipes.jpg'
+      id: 'bundle',
+      image: '/images/ebook-bundle.jpg'
     }
   ];
 
@@ -114,21 +107,23 @@ const Ebooks = () => {
         </HeroContent>
       </Hero>
 
-      <EbooksGrid>
-        {ebooks.map(ebook => (
-          <EbookCard key={ebook.id}>
-            <EbookImage image={ebook.image} />
-            <EbookContent>
-              <EbookTitle>{t(ebook.titleKey)}</EbookTitle>
-              <EbookDescription>{t(ebook.descriptionKey)}</EbookDescription>
-              <EbookPrice>{t(ebook.priceKey)}</EbookPrice>
-              <Button as="a" href={`/ebook/${ebook.id}`}>
-                {t(ebook.ctaKey)}
-              </Button>
-            </EbookContent>
-          </EbookCard>
-        ))}
-      </EbooksGrid>
+      <EbooksSection>
+        <EbooksGrid>
+          {ebooks.map(ebook => (
+            <EbookCard key={ebook.id}>
+              <EbookImage image={ebook.image} />
+              <EbookContent>
+                <EbookTitle>{t(`ebooks.${ebook.id}.title`)}</EbookTitle>
+                <EbookDescription>{t(`ebooks.${ebook.id}.description`)}</EbookDescription>
+                <EbookPrice>{t(`ebooks.${ebook.id}.price`)}</EbookPrice>
+                <Button as="a" href={`/ebook/${ebook.id}`}>
+                  {t(`ebooks.${ebook.id}.cta`)}
+                </Button>
+              </EbookContent>
+            </EbookCard>
+          ))}
+        </EbooksGrid>
+      </EbooksSection>
     </EbooksContainer>
   );
 };

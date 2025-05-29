@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KetoElevate - Ebooks</title>
+    <meta name="description" content="Comprehensive ketogenic diet ebooks">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.16/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <style>
+        /* Additional ebooks page specific styles */
+        .ebooks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .ebook-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .ebook-image {
+            width: 200px;
+            height: 280px;
+            margin: 0 auto 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: #666;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #8BC34A;
+            margin: 20px 0;
+        }
+
+        .discount-banner {
+            background: linear-gradient(135deg, #8BC34A, #7CB342);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .discount-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: #8BC34A;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            background: #7CB342;
+            transform: translateY(-2px);
+        }
+
+        .ebook-description {
+            color: #666;
+            margin: 20px 0;
+            line-height: 1.6;
+            min-height: 100px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">KetoElevate</div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="navigation.home">Home</a></li>
+                <li><a href="articles.html" data-i18n="navigation.articles">Articles</a></li>
+                <li><a href="recipes.html" data-i18n="navigation.recipes">Recipes</a></li>
+                <li><a href="ebooks.html" class="nav-active" data-i18n="navigation.ebooks">Ebooks</a></li>
+            </ul>
+            <div class="language-selector">
+                <button type="button" class="current-lang">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="language-menu" id="languageMenu">
+                    <a href="#" class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇺🇸</span>
+                        English
+                    </a>
+                    <a href="#" class="lang-option" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        Español
+                    </a>
+                    <a href="#" class="lang-option" data-lang="zh">
+                        <span class="lang-flag">🇨🇳</span>
+                        中文
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 data-i18n="ebooks.title">Ketogenic Diet Ebooks</h1>
+            <p data-i18n="ebooks.subtitle">Comprehensive guides to transform your health</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="discount-banner">
+            <h3 data-i18n="ebooks.offer.title">Special Offer!</h3>
+            <p data-i18n="ebooks.offer.description">Purchase both ebooks together and receive a 25% discount!</p>
+            <button class="cta-button" data-i18n="ebooks.offer.button">Get Bundle Deal</button>
+        </div>
+
+        <div class="ebooks-grid">
+            <div class="ebook-card">
+                <div class="ebook-image">The Science of Keto</div>
+                <h3 data-i18n="ebooks.science.title">The Science of Keto: Understanding the Why Behind the Diet</h3>
+                <p class="ebook-description" data-i18n="ebooks.science.description">A deep dive into the biology and science of ketosis, fat adaptation, ketone production, and how keto affects metabolism, brain health, and hormones.</p>
+                <ul class="features-list">
+                    <li data-i18n="ebooks.science.features.metabolism">Detailed explanations of ketone metabolism</li>
+                    <li data-i18n="ebooks.science.features.brain">Brain health and cognitive benefits</li>
+                    <li data-i18n="ebooks.science.features.hormones">Hormonal impacts and adaptations</li>
+                    <li data-i18n="ebooks.science.features.research">Scientific research references</li>
+                </ul>
+                <div class="price">$24.99</div>
+                <button class="buy-button" data-i18n="ebooks.science.buy">Buy Now</button>
+            </div>
+            <div class="ebook-card">
+                <div class="ebook-image">Keto Meal Prep</div>
+                <h3 data-i18n="ebooks.mealprep.title">Keto Meal Prep Made Easy: 4 Weeks of Done-for-You Plans</h3>
+                <p class="ebook-description" data-i18n="ebooks.mealprep.description">A practical ebook for busy people featuring batch-cooking, weekly shopping lists, and time-saving strategies to stay in ketosis without stress.</p>
+                <ul class="features-list">
+                    <li data-i18n="ebooks.mealprep.features.plans">4 weeks of detailed meal plans</li>
+                    <li data-i18n="ebooks.mealprep.features.shopping">Complete shopping lists</li>
+                    <li data-i18n="ebooks.mealprep.features.cooking">Batch cooking guides</li>
+                    <li data-i18n="ebooks.mealprep.features.strategies">Time-saving prep strategies</li>
+                </ul>
+                <div class="price">$24.99</div>
+                <button class="buy-button" data-i18n="ebooks.mealprep.buy">Buy Now</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/ebooks.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html> 
