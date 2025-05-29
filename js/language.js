@@ -143,7 +143,7 @@ const resources = {
                     "email": "Email: info@ketohorizon.com",
                     "phone": "Phone: 555-1234"
                 },
-                "copyright": "© 2023 KetoHorizon. All rights reserved."
+                "copyright": "© 2025 KetoElevate. All rights reserved."
             }
         }
     },
@@ -290,7 +290,7 @@ const resources = {
                     "email": "Correo: info@ketohorizon.com",
                     "phone": "Teléfono: 555-1234"
                 },
-                "copyright": "© 2023 KetoHorizon. Todos los derechos reservados."
+                "copyright": "© 2025 KetoElevate. Todos los derechos reservados."
             }
         }
     },
@@ -437,7 +437,7 @@ const resources = {
                     "email": "邮箱：info@ketohorizon.com",
                     "phone": "电话：555-1234"
                 },
-                "copyright": "© 2023 KetoHorizon。保留所有权利。"
+                "copyright": "© 2025 KetoElevate。保留所有权利。"
             }
         }
     }
