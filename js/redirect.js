@@ -1,8 +1,9 @@
 const path = window.location.pathname;
+const repoName = '/ketohorizon';
 const redirects = {
-    '/articles': '/articles.html',
-    '/recipes': '/recipes.html',
-    '/ebooks': '/ebooks.html'
+    [`${repoName}/articles`]: `${repoName}/articles.html`,
+    [`${repoName}/recipes`]: `${repoName}/recipes.html`,
+    [`${repoName}/ebooks`]: `${repoName}/ebooks.html`
 };
 
 if (redirects[path]) {
