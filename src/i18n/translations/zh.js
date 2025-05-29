@@ -39,6 +39,43 @@ export default {
       title: '保持生酮生活方式',
       description: '维持可持续生酮生活方式的技巧和策略。',
       cta: '阅读更多'
+    },
+    keto101: {
+      title: '生酮饮食 101：什么是生酮饮食？它是如何运作的？',
+      introduction: {
+        title: '引言',
+        content: '生酮饮食（简称"Keto"）是一种高脂肪、低碳水化合物的饮食方式，近年来因其减肥效果、提升精力和改善专注力而广受欢迎。'
+      },
+      what_is_keto: {
+        title: '什么是生酮饮食？',
+        content: '生酮饮食的核心是减少碳水化合物的摄入，同时增加脂肪的摄入量。通常，身体会以葡萄糖（来自碳水化合物）作为主要能量来源。当碳水摄入减少时，身体进入一种称为酮症（Ketosis）的状态，开始以脂肪作为主要能量来源。'
+      },
+      how_ketosis_works: {
+        title: '酮症是如何运作的？',
+        content: '摄入极少的碳水后，肝脏会将脂肪转化为酮体（Ketones），它们可以为身体和大脑提供能量。这种变化有助于减重，提升专注力，并提供更持久稳定的能量。'
+      },
+      benefits: {
+        title: '生酮饮食的好处',
+        list: [
+          '减脂：身体以脂肪为燃料',
+          '能量稳定：避免血糖波动',
+          '减少饥饿感：脂肪更有饱腹感',
+          '提升脑力：许多人报告专注力提高'
+        ]
+      },
+      foods: {
+        title: '推荐食物',
+        allowed: [
+          '健康脂肪（鳄梨、橄榄油、黄油）',
+          '肉类和鱼类',
+          '低碳蔬菜（菠菜、西兰花）'
+        ],
+        avoid: '避免面包、面条、糖和大部分水果'
+      },
+      conclusion: {
+        title: '适合你吗？',
+        content: '生酮饮食并非适合所有人。对于胰岛素抵抗的人效果较好，但开始前最好咨询医生或营养师。'
+      }
     }
   },
   success_stories: {
@@ -95,5 +132,26 @@ export default {
       price: '¥275',
       cta: '立即购买'
     }
+  },
+  comments: {
+    title: '评论',
+    nicknameLabel: '昵称',
+    nicknamePlaceholder: '请输入昵称',
+    commentLabel: '评论',
+    placeholder: '写下你的评论...',
+    replyPlaceholder: '写下你的回复...',
+    submit: '发表评论',
+    reply: '发表回复',
+    replyButton: '回复',
+    upvoteButton: '点赞',
+    upvoteCount: '{{count}}个赞',
+    upvoteCountOne: '1个赞',
+    alreadyUpvoted: '已点赞'
+  },
+  sharing: {
+    title: '分享文章',
+    twitter: '分享到推特',
+    facebook: '分享到脸书',
+    instagram: '分享到Instagram'
   }
 }; 

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Button from '../../components/common/Button';
 
 const Card = styled.div`
   background: white;
-  border-radius: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 
   &:hover {
@@ -15,42 +15,55 @@ const Card = styled.div`
   }
 `;
 
-const Image = styled.div`
-  width: 100%;
+const CardImage = styled.div`
   height: 200px;
   background-image: ${props => `url(${props.image})`};
   background-size: cover;
   background-position: center;
 `;
 
-const Content = styled.div`
-  padding: 25px;
+const CardContent = styled.div`
+  padding: 20px;
 `;
 
-const Title = styled.h3`
-  font-size: 1.3rem;
-  margin-bottom: 15px;
+const CardTitle = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 10px;
   color: ${props => props.theme.colors.text};
 `;
 
-const Description = styled.p`
+const CardDescription = styled.p`
   color: ${props => props.theme.colors.textLight};
   margin-bottom: 20px;
+  line-height: 1.5;
 `;
 
-const ArticleCard = ({ article }) => {
+const ReadMoreButton = styled(Link)`
+  display: inline-block;
+  padding: 8px 16px;
+  background: ${props => props.theme.colors.primary};
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+
+  &:hover {
+    background: ${props => props.theme.colors.primaryDark};
+  }
+`;
+
+const ArticleCard = ({ id, image, titleKey, descriptionKey, ctaKey }) => {
   const { t } = useTranslation();
-  
+  const { lang } = useParams();
+
   return (
     <Card>
-      <Image image={article.image} />
-      <Content>
-        <Title>{t(article.titleKey)}</Title>
-        <Description>{t(article.descriptionKey)}</Description>
-        <Button as="a" href={article.link}>
-          {t(article.ctaKey)}
-        </Button>
-      </Content>
+      <CardImage image={image} />
+      <CardContent>
+        <CardTitle>{t(titleKey)}</CardTitle>
+        <CardDescription>{t(descriptionKey)}</CardDescription>
+        <ReadMoreButton to={`/${lang}/articles/${id}`}>{t(ctaKey)}</ReadMoreButton>
+      </CardContent>
     </Card>
   );
 };
