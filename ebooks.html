@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KetoGuru - Ebooks</title>
+    <meta name="description" content="Comprehensive keto diet ebooks and guides">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Additional ebooks page specific styles */
+        .ebooks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .ebook-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .ebook-image {
+            width: 200px;
+            height: 280px;
+            margin: 0 auto 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: #666;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #8BC34A;
+            margin: 20px 0;
+        }
+
+        .discount-banner {
+            background: linear-gradient(135deg, #8BC34A, #7CB342);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .discount-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: #8BC34A;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            background: #7CB342;
+            transform: translateY(-2px);
+        }
+
+        .ebook-description {
+            color: #666;
+            margin: 20px 0;
+            line-height: 1.6;
+            min-height: 100px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (same as other pages) -->
+    <header>
+        <nav class="container">
+            <div class="logo">KetoGuru</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/articles">Articles</a></li>
+                <li><a href="/recipes">Recipes</a></li>
+                <li><a href="/ebooks" class="nav-active">Ebooks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Keto Diet Ebooks</h1>
+            <p>Transform your health with our comprehensive guides</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="discount-banner">
+            <h3>Special Bundle Offer!</h3>
+            <p>Get both ebooks and save 10% - Perfect combination of theory and practice!</p>
+            <button class="buy-button">Get Bundle Deal - $44.99</button>
+        </div>
+
+        <div class="ebooks-grid">
+            <div class="ebook-card">
+                <div class="ebook-image">The Science of Keto</div>
+                <h3>The Science of Keto: Understanding the Why Behind the Diet</h3>
+                <p class="ebook-description">A deep dive into the biology and science of ketosis, fat adaptation, ketone production, and how keto affects metabolism, brain health, and hormones.</p>
+                <ul class="features-list">
+                    <li>Detailed explanations of ketone metabolism</li>
+                    <li>Brain health and cognitive benefits</li>
+                    <li>Hormonal impacts and adaptations</li>
+                    <li>Scientific research references</li>
+                </ul>
+                <div class="price">$24.99</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+            <div class="ebook-card">
+                <div class="ebook-image">Keto Meal Prep</div>
+                <h3>Keto Meal Prep Made Easy: 4 Weeks of Done-for-You Plans</h3>
+                <p class="ebook-description">A practical ebook for busy people featuring batch-cooking, weekly shopping lists, and time-saving strategies to stay in ketosis without stress.</p>
+                <ul class="features-list">
+                    <li>4 weeks of detailed meal plans</li>
+                    <li>Complete shopping lists</li>
+                    <li>Batch cooking guides</li>
+                    <li>Time-saving prep strategies</li>
+                </ul>
+                <div class="price">$24.99</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as other pages) -->
+</body>
+</html> 
