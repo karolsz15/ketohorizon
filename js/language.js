@@ -28,6 +28,9 @@ function redirectToLanguage(lang) {
 
 // Initialize language handling
 function initLanguage() {
+    // Attach event listeners to language options
+    attachLanguageListeners();
+
     // Check for stored preference first
     const storedLang = localStorage.getItem('preferred-language');
     if (storedLang && isSupportedLanguage(storedLang)) {
@@ -42,6 +45,17 @@ function initLanguage() {
     }
 }
 
+// Attach event listeners to language options
+function attachLanguageListeners() {
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = option.dataset.lang;
+            selectLanguage(lang);
+        });
+    });
+}
+
 // Language selector functionality
 function toggleLanguageMenu() {
     const menu = document.getElementById('languageMenu');
@@ -51,7 +65,11 @@ function toggleLanguageMenu() {
 // Handle language selection
 function selectLanguage(lang) {
     localStorage.setItem('preferred-language', lang);
-    redirectToLanguage(lang);
+    // Get the correct path for the selected language
+    const currentPath = window.location.pathname;
+    const basePath = currentPath.replace(/^\/[a-z]{2}\//, '/').replace(/^\//, '');
+    const newPath = lang === 'en' ? `/${basePath}` : `/${lang}/${basePath}`;
+    window.location.href = newPath;
 }
 
 // Close menu when clicking outside
@@ -62,15 +80,6 @@ document.addEventListener('click', (e) => {
     if (!langSelector && menu.classList.contains('show')) {
         menu.classList.remove('show');
     }
-});
-
-// Add language selection handlers to all language options
-document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lang = option.dataset.lang;
-        selectLanguage(lang);
-    });
 });
 
 // Initialize on page load
