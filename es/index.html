@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KetoHorizon - Transform Your Health with Keto</title>
+    <title>KetoElevate - Transform Your Health with Keto</title>
     <meta name="description" content="Discover the power of ketogenic diet with expert guidance, recipes, and resources. Transform your health journey today.">
     <meta name="keywords" content="keto diet, ketogenic lifestyle, keto recipes, weight loss, healthy eating">
-    <meta name="author" content="KetoHorizon">
-    <meta property="og:title" content="KetoHorizon - Transform Your Health with Keto">
+    <meta name="author" content="KetoElevate">
+    <meta property="og:title" content="KetoElevate - Transform Your Health with Keto">
     <meta property="og:description" content="Discover the power of ketogenic diet with expert guidance, recipes, and resources. Transform your health journey today.">
     <meta property="og:image" content="path/to/your/og-image.jpg">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "KetoHorizon",
-        "url": "https://your-domain.com",
+        "name": "KetoElevate",
+        "url": "https://ketoelevate.com",
         "description": "Expert ketogenic diet guidance and resources"
     }
     </script>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.16/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -526,12 +528,12 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">KetoHorizon</div>
+            <div class="logo">KetoElevate</div>
             <ul class="nav-links">
-                <li><a href="./index.html" class="nav-active">Home</a></li>
-                <li><a href="./articles.html">Articles</a></li>
-                <li><a href="./recipes.html">Recipes</a></li>
-                <li><a href="./ebooks.html">Ebooks</a></li>
+                <li><a href="./index.html" class="nav-active" data-i18n="navigation.home">Home</a></li>
+                <li><a href="./articles.html" data-i18n="navigation.articles">Articles</a></li>
+                <li><a href="./recipes.html" data-i18n="navigation.recipes">Recipes</a></li>
+                <li><a href="./ebooks.html" data-i18n="navigation.ebooks">Ebooks</a></li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -567,9 +569,9 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Discover the Power of Keto</h1>
-                    <p>Transform your health with our expert guidance and resources. Start your ketogenic journey today.</p>
-                    <a href="#features" class="cta-button">Get Started</a>
+                    <h1 data-i18n="hero.title">Discover the Power of Keto</h1>
+                    <p data-i18n="hero.subtitle">Transform your health with our expert guidance and resources. Start your ketogenic journey today.</p>
+                    <a href="#features" class="cta-button" data-i18n="hero.cta">Get Started</a>
                 </div>
             </div>
         </section>
@@ -577,22 +579,22 @@
         <!-- Features Section -->
         <section class="features" id="features">
             <div class="container">
-                <h2 class="section-title">Why Choose KetoHorizon?</h2>
+                <h2 class="section-title" data-i18n="features.title">Why Choose KetoElevate?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-image" style="background-image: linear-gradient(rgba(139,195,74,0.8), rgba(124,179,66,0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 200%22><rect fill=%22%23f0f0f0%22 width=%22300%22 height=%22200%22/><circle fill=%22%23ff6b6b%22 cx=%22150%22 cy=%22100%22 r=%2250%22/><path fill=%22%2300b894%22 d=%22M120 80 L180 80 L150 130 Z%22/></svg>')"></div>
-                        <h3>Nutritional Benefits</h3>
-                        <p>Discover how a ketogenic diet can put your body in ketosis and start burning fat effectively for sustainable weight loss.</p>
+                        <h3 data-i18n="features.cards.nutrition.title">Nutritional Benefits</h3>
+                        <p data-i18n="features.cards.nutrition.description">Discover how a ketogenic diet can put your body in ketosis and start burning fat effectively for sustainable weight loss.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-image" style="background-image: linear-gradient(rgba(139,195,74,0.8), rgba(124,179,66,0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 200%22><rect fill=%22%23f8f9fa%22 width=%22300%22 height=%22200%22/><rect fill=%22%23007bff%22 x=%2250%22 y=%2250%22 width=%22200%22 height=%22100%22 rx=%225%22/><circle fill=%22%23ffffff%22 cx=%22150%22 cy=%22100%22 r=%2230%22/></svg>')"></div>
-                        <h3>Comprehensive Guides</h3>
-                        <p>Access our extensive collection of articles and resources to guide your keto journey every step of the way.</p>
+                        <h3 data-i18n="features.cards.guides.title">Comprehensive Guides</h3>
+                        <p data-i18n="features.cards.guides.description">Access our extensive collection of articles and resources to guide your keto journey every step of the way.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-image" style="background-image: linear-gradient(rgba(139,195,74,0.8), rgba(124,179,66,0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 200%22><rect fill=%22%23f8f9fa%22 width=%22300%22 height=%22200%22/><circle fill=%22%23ffd93d%22 cx=%22100%22 cy=%22100%22 r=%2240%22/><circle fill=%22%23ff6b6b%22 cx=%22200%22 cy=%22100%22 r=%2240%22/></svg>')"></div>
-                        <h3>Success Stories</h3>
-                        <p>Read about the amazing transformations our community members have achieved with their ketogenic lifestyle.</p>
+                        <h3 data-i18n="features.cards.success.title">Success Stories</h3>
+                        <p data-i18n="features.cards.success.description">Read about the amazing transformations our community members have achieved with their ketogenic lifestyle.</p>
                     </div>
                 </div>
             </div>
@@ -601,22 +603,22 @@
         <!-- Success Stories -->
         <section class="success-stories">
             <div class="container">
-                <h2 class="section-title">Success Stories</h2>
+                <h2 class="section-title" data-i18n="success_stories.title">Success Stories</h2>
                 <div class="stories-grid">
                     <div class="story-card">
                         <div class="story-avatar" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle fill=%22%23e0e0e0%22 cx=%2260%22 cy=%2260%22 r=%2260%22/><circle fill=%22%23666%22 cx=%2260%22 cy=%2245%22 r=%2215%22/><ellipse fill=%22%23666%22 cx=%2260%22 cy=%2285%22 rx=%2225%22 ry=%2220%22/></svg>')"></div>
-                        <h4>Sarah's Transformation</h4>
-                        <p>"KetoHorizon changed my life. I've lost 50 pounds and feel more energetic than ever!"</p>
+                        <h4 data-i18n="success_stories.stories.sarah.name">Sarah's Transformation</h4>
+                        <p data-i18n="success_stories.stories.sarah.quote">"KetoElevate changed my life. I've lost 50 pounds and feel more energetic than ever!"</p>
                     </div>
                     <div class="story-card">
                         <div class="story-avatar" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle fill=%22%23e0e0e0%22 cx=%2260%22 cy=%2260%22 r=%2260%22/><circle fill=%22%23666%22 cx=%2260%22 cy=%2245%22 r=%2215%22/><ellipse fill=%22%23666%22 cx=%2260%22 cy=%2285%22 rx=%2225%22 ry=%2220%22/></svg>')"></div>
-                        <h4>Mike's Journey</h4>
-                        <p>"The recipes are fantastic, and the community support is incredible. Highly recommend!"</p>
+                        <h4 data-i18n="success_stories.stories.mike.name">Mike's Journey</h4>
+                        <p data-i18n="success_stories.stories.mike.quote">"The recipes are fantastic, and the community support is incredible. Highly recommend!"</p>
                     </div>
                     <div class="story-card">
                         <div class="story-avatar" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22><circle fill=%22%23e0e0e0%22 cx=%2260%22 cy=%2260%22 r=%2260%22/><circle fill=%22%23666%22 cx=%2260%22 cy=%2245%22 r=%2215%22/><ellipse fill=%22%23666%22 cx=%2260%22 cy=%2285%22 rx=%2225%22 ry=%2220%22/></svg>')"></div>
-                        <h4>Emma's Success</h4>
-                        <p>"I never thought I could feel this good. Keto has been a game-changer for my health."</p>
+                        <h4 data-i18n="success_stories.stories.emma.name">Emma's Success</h4>
+                        <p data-i18n="success_stories.stories.emma.quote">"I never thought I could feel this good. Keto has been a game-changer for my health."</p>
                     </div>
                 </div>
             </div>
@@ -625,30 +627,30 @@
         <!-- Articles Preview -->
         <section class="articles-preview">
             <div class="container">
-                <h2 class="section-title">Latest Articles</h2>
+                <h2 class="section-title" data-i18n="latest_articles.title">Latest Articles</h2>
                 <div class="articles-grid">
                     <div class="article-card">
                         <div class="article-image" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 350 200%22><rect fill=%22%23f8f9fa%22 width=%22350%22 height=%22200%22/><ellipse fill=%22%23228B22%22 cx=%22175%22 cy=%22100%22 rx=%2280%22 ry=%2260%22/><circle fill=%22%23654321%22 cx=%22175%22 cy=%22100%22 r=%2220%22/></svg>')"></div>
                         <div class="article-content">
-                            <h3>The Essentials of a Ketogenic Diet</h3>
-                            <p>Discover the fundamental principles of a ketogenic diet and how it can transform your health.</p>
-                            <a href="#" class="read-more">Read More</a>
+                            <h3 data-i18n="latest_articles.articles.essentials.title">The Essentials of a Ketogenic Diet</h3>
+                            <p data-i18n="latest_articles.articles.essentials.description">Discover the fundamental principles of a ketogenic diet and how it can transform your health.</p>
+                            <a href="#" class="read-more" data-i18n="latest_articles.articles.essentials.cta">Read More</a>
                         </div>
                     </div>
                     <div class="article-card">
                         <div class="article-image" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 350 200%22><rect fill=%22%23f8f9fa%22 width=%22350%22 height=%22200%22/><rect fill=%22%23ff6b6b%22 x=%2250%22 y=%2250%22 width=%2260%22 height=%2240%22 rx=%225%22/><rect fill=%22%2300b894%22 x=%22130%22 y=%2260%22 width=%2280%22 height=%2230%22 rx=%225%22/><circle fill=%22%23ffd93d%22 cx=%22280%22 cy=%2280%22 r=%2225%22/></svg>')"></div>
                         <div class="article-content">
-                            <h3>Top 10 Keto-Friendly Ingredients</h3>
-                            <p>Learn about the top ingredients that should be part of your ketogenic kitchen essentials.</p>
-                            <a href="#" class="read-more">Read More</a>
+                            <h3 data-i18n="latest_articles.articles.ingredients.title">Top 10 Keto-Friendly Ingredients</h3>
+                            <p data-i18n="latest_articles.articles.ingredients.description">Learn about the top ingredients that should be part of your ketogenic kitchen essentials.</p>
+                            <a href="#" class="read-more" data-i18n="latest_articles.articles.ingredients.cta">Read More</a>
                         </div>
                     </div>
                     <div class="article-card">
                         <div class="article-image" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 350 200%22><rect fill=%22%23f8f9fa%22 width=%22350%22 height=%22200%22/><circle fill=%22%23228B22%22 cx=%2280%22 cy=%22100%22 r=%2330%22/><rect fill=%22%23ff6b6b%22 x=%22140%22 y=%2270%22 width=%2240%22 height=%2260%22 rx=%2210%22/><circle fill=%22%23ffd93d%22 cx=%22250%22 cy=%2280%22 r=%2220%22/></svg>')"></div>
                         <div class="article-content">
-                            <h3>Keto Recipes for Beginners</h3>
-                            <p>Get started with these easy and delicious recipes that are perfect for new keto dieters.</p>
-                            <a href="#" class="read-more">Read More</a>
+                            <h3 data-i18n="latest_articles.articles.recipes.title">Keto Recipes for Beginners</h3>
+                            <p data-i18n="latest_articles.articles.recipes.description">Get started with these easy and delicious recipes that are perfect for new keto dieters.</p>
+                            <a href="#" class="read-more" data-i18n="latest_articles.articles.recipes.cta">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -744,22 +746,22 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3 data-i18n="footer.quick_links.title">Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#articles">Articles</a></li>
-                        <li><a href="#recipes">Recipes</a></li>
-                        <li><a href="#ebooks">Ebooks</a></li>
+                        <li><a href="#home" data-i18n="footer.quick_links.home">Home</a></li>
+                        <li><a href="#articles" data-i18n="footer.quick_links.articles">Articles</a></li>
+                        <li><a href="#recipes" data-i18n="footer.quick_links.recipes">Recipes</a></li>
+                        <li><a href="#ebooks" data-i18n="footer.quick_links.ebooks">Ebooks</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>KetoHorizon is dedicated to providing expert guidance and resources for those interested in the ketogenic lifestyle. Our mission is to help you transform your health and achieve your weight loss goals.</p>
+                    <h3 data-i18n="footer.about.title">About Us</h3>
+                    <p data-i18n="footer.about.description">KetoElevate is dedicated to providing expert guidance and resources for those interested in the ketogenic lifestyle. Our mission is to help you transform your health and achieve your weight loss goals.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: info@ketohorizon.com</p>
-                    <p>Phone: 555-1234</p>
+                    <h3 data-i18n="footer.contact.title">Contact</h3>
+                    <p data-i18n="footer.contact.email">Email: info@ketoelevate.com</p>
+                    <p data-i18n="footer.contact.phone">Phone: 555-1234</p>
                     <div class="social-icons">
                         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -769,7 +771,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 KetoHorizon. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2023 KetoElevate. All rights reserved.</p>
             </div>
         </div>
     </footer>

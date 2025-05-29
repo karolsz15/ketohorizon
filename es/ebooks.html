@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KetoGuru - Ebooks</title>
-    <meta name="description" content="Comprehensive keto diet ebooks and guides">
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>KetoElevate - Ebooks</title>
+    <meta name="description" content="Comprehensive ketogenic diet ebooks">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.16/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
     <style>
         /* Additional ebooks page specific styles */
         .ebooks-grid {
@@ -98,63 +100,83 @@
     </style>
 </head>
 <body>
-    <!-- Header (same as other pages) -->
     <header>
         <nav class="container">
-            <div class="logo">KetoGuru</div>
+            <div class="logo">KetoElevate</div>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/articles">Articles</a></li>
-                <li><a href="/recipes">Recipes</a></li>
-                <li><a href="/ebooks" class="nav-active">Ebooks</a></li>
+                <li><a href="index.html" data-i18n="navigation.home">Home</a></li>
+                <li><a href="articles.html" data-i18n="navigation.articles">Articles</a></li>
+                <li><a href="recipes.html" data-i18n="navigation.recipes">Recipes</a></li>
+                <li><a href="ebooks.html" class="nav-active" data-i18n="navigation.ebooks">Ebooks</a></li>
             </ul>
+            <div class="language-selector">
+                <button type="button" class="current-lang">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="language-menu" id="languageMenu">
+                    <a href="#" class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇺🇸</span>
+                        English
+                    </a>
+                    <a href="#" class="lang-option" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        Español
+                    </a>
+                    <a href="#" class="lang-option" data-lang="zh">
+                        <span class="lang-flag">🇨🇳</span>
+                        中文
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <div class="page-header">
         <div class="container">
-            <h1>Keto Diet Ebooks</h1>
-            <p>Transform your health with our comprehensive guides</p>
+            <h1 data-i18n="ebooks.title">Ketogenic Diet Ebooks</h1>
+            <p data-i18n="ebooks.subtitle">Comprehensive guides to transform your health</p>
         </div>
     </div>
 
     <main class="container">
         <div class="discount-banner">
-            <h3>Special Bundle Offer!</h3>
-            <p>Get both ebooks and save 10% - Perfect combination of theory and practice!</p>
-            <button class="buy-button">Get Bundle Deal - $44.99</button>
+            <h3 data-i18n="ebooks.offer.title">Special Offer!</h3>
+            <p data-i18n="ebooks.offer.description">Purchase both ebooks together and receive a 25% discount!</p>
+            <button class="cta-button" data-i18n="ebooks.offer.button">Get Bundle Deal</button>
         </div>
 
         <div class="ebooks-grid">
             <div class="ebook-card">
                 <div class="ebook-image">The Science of Keto</div>
-                <h3>The Science of Keto: Understanding the Why Behind the Diet</h3>
-                <p class="ebook-description">A deep dive into the biology and science of ketosis, fat adaptation, ketone production, and how keto affects metabolism, brain health, and hormones.</p>
+                <h3 data-i18n="ebooks.science.title">The Science of Keto: Understanding the Why Behind the Diet</h3>
+                <p class="ebook-description" data-i18n="ebooks.science.description">A deep dive into the biology and science of ketosis, fat adaptation, ketone production, and how keto affects metabolism, brain health, and hormones.</p>
                 <ul class="features-list">
-                    <li>Detailed explanations of ketone metabolism</li>
-                    <li>Brain health and cognitive benefits</li>
-                    <li>Hormonal impacts and adaptations</li>
-                    <li>Scientific research references</li>
+                    <li data-i18n="ebooks.science.features.metabolism">Detailed explanations of ketone metabolism</li>
+                    <li data-i18n="ebooks.science.features.brain">Brain health and cognitive benefits</li>
+                    <li data-i18n="ebooks.science.features.hormones">Hormonal impacts and adaptations</li>
+                    <li data-i18n="ebooks.science.features.research">Scientific research references</li>
                 </ul>
                 <div class="price">$24.99</div>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" data-i18n="ebooks.science.buy">Buy Now</button>
             </div>
             <div class="ebook-card">
                 <div class="ebook-image">Keto Meal Prep</div>
-                <h3>Keto Meal Prep Made Easy: 4 Weeks of Done-for-You Plans</h3>
-                <p class="ebook-description">A practical ebook for busy people featuring batch-cooking, weekly shopping lists, and time-saving strategies to stay in ketosis without stress.</p>
+                <h3 data-i18n="ebooks.mealprep.title">Keto Meal Prep Made Easy: 4 Weeks of Done-for-You Plans</h3>
+                <p class="ebook-description" data-i18n="ebooks.mealprep.description">A practical ebook for busy people featuring batch-cooking, weekly shopping lists, and time-saving strategies to stay in ketosis without stress.</p>
                 <ul class="features-list">
-                    <li>4 weeks of detailed meal plans</li>
-                    <li>Complete shopping lists</li>
-                    <li>Batch cooking guides</li>
-                    <li>Time-saving prep strategies</li>
+                    <li data-i18n="ebooks.mealprep.features.plans">4 weeks of detailed meal plans</li>
+                    <li data-i18n="ebooks.mealprep.features.shopping">Complete shopping lists</li>
+                    <li data-i18n="ebooks.mealprep.features.cooking">Batch cooking guides</li>
+                    <li data-i18n="ebooks.mealprep.features.strategies">Time-saving prep strategies</li>
                 </ul>
                 <div class="price">$24.99</div>
-                <button class="buy-button">Buy Now</button>
+                <button class="buy-button" data-i18n="ebooks.mealprep.buy">Buy Now</button>
             </div>
         </div>
     </main>
 
-    <!-- Footer (same as other pages) -->
+    <script src="js/ebooks.js"></script>
+    <script src="js/language.js"></script>
 </body>
 </html> 

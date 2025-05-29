@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "articles": "Artículos",
+    "recipes": "Recetas",
+    "ebooks": "Libros"
+  },
+  "hero": {
+    "title": "Descubre el Poder de Keto",
+    "subtitle": "Transforma tu salud con nuestra guía experta y recursos. Comienza tu viaje cetogénico hoy.",
+    "cta": "Comenzar"
+  },
+  "features": {
+    "title": "¿Por qué elegir KetoHorizon?",
+    "cards": {
+      "nutrition": {
+        "title": "Beneficios Nutricionales",
+        "description": "Descubre cómo una dieta cetogénica puede poner tu cuerpo en cetosis y comenzar a quemar grasa de manera efectiva."
+      },
+      "guides": {
+        "title": "Guías Completas",
+        "description": "Accede a nuestra extensa colección de artículos y recursos para guiar tu viaje cetogénico en cada paso."
+      },
+      "success": {
+        "title": "Historias de Éxito",
+        "description": "Lee sobre las increíbles transformaciones que nuestros miembros han logrado con su estilo de vida cetogénico."
+      }
+    }
+  }
+} 

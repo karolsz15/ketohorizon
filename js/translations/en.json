@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "articles": "Articles",
+    "recipes": "Recipes",
+    "ebooks": "Ebooks"
+  },
+  "hero": {
+    "title": "Discover the Power of Keto",
+    "subtitle": "Transform your health with our expert guidance and resources. Start your ketogenic journey today.",
+    "cta": "Get Started"
+  },
+  "features": {
+    "title": "Why Choose KetoHorizon?",
+    "cards": {
+      "nutrition": {
+        "title": "Nutritional Benefits",
+        "description": "Discover how a ketogenic diet can put your body in ketosis and start burning fat effectively for sustainable weight loss."
+      },
+      "guides": {
+        "title": "Comprehensive Guides",
+        "description": "Access our extensive collection of articles and resources to guide your keto journey every step of the way."
+      },
+      "success": {
+        "title": "Success Stories",
+        "description": "Read about the amazing transformations our community members have achieved with their ketogenic lifestyle."
+      }
+    }
+  }
+} 
