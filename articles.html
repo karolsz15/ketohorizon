@@ -3,20 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KetoGuru - Articles</title>
-    <meta name="description" content="Expert articles and guides about ketogenic diet and lifestyle">
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>KetoElevate - Articles</title>
+    <meta name="description" content="Expert articles and guides about ketogenic diet and lifestyle from KetoElevate">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.16/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">KetoGuru</div>
+            <div class="logo">KetoElevate</div>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/articles" class="nav-active">Articles</a></li>
-                <li><a href="/recipes">Recipes</a></li>
-                <li><a href="/ebooks">Ebooks</a></li>
+                <li><a href="index.html" data-i18n="navigation.home">Home</a></li>
+                <li><a href="articles.html" class="nav-active" data-i18n="navigation.articles">Articles</a></li>
+                <li><a href="recipes.html" data-i18n="navigation.recipes">Recipes</a></li>
+                <li><a href="ebooks.html" data-i18n="navigation.ebooks">Ebooks</a></li>
             </ul>
+            <div class="language-selector">
+                <button type="button" class="current-lang">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="language-menu" id="languageMenu">
+                    <a href="#" class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇺🇸</span>
+                        English
+                    </a>
+                    <a href="#" class="lang-option" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        Español
+                    </a>
+                    <a href="#" class="lang-option" data-lang="zh">
+                        <span class="lang-flag">🇨🇳</span>
+                        中文
+                    </a>
+                </div>
+            </div>
             <div class="mobile-menu">
                 <span></span>
                 <span></span>
@@ -27,8 +49,8 @@
 
     <div class="page-header">
         <div class="container">
-            <h1>Keto Articles & Guides</h1>
-            <p>Expert insights and comprehensive guides for your ketogenic journey</p>
+            <h1 data-i18n="articles.title">Keto Articles & Guides</h1>
+            <p data-i18n="articles.subtitle">Expert insights and comprehensive guides for your ketogenic journey</p>
         </div>
     </div>
 
@@ -41,13 +63,13 @@
                     </div>
                 </div>
                 <div class="sidebar">
-                    <h3>Categories</h3>
+                    <h3 data-i18n="articles.categories.title">Categories</h3>
                     <ul>
-                        <li><a href="/articles?category=basics">Ketogenic Basics</a></li>
-                        <li><a href="/articles?category=recipes">Recipes</a></li>
-                        <li><a href="/articles?category=benefits">Health Benefits</a></li>
-                        <li><a href="/articles?category=success">Success Stories</a></li>
-                        <li><a href="/articles?category=mistakes">Common Mistakes</a></li>
+                        <li><a href="/articles?category=basics" data-i18n="articles.categories.basics">Ketogenic Basics</a></li>
+                        <li><a href="/articles?category=recipes" data-i18n="articles.categories.recipes">Recipes</a></li>
+                        <li><a href="/articles?category=benefits" data-i18n="articles.categories.benefits">Health Benefits</a></li>
+                        <li><a href="/articles?category=success" data-i18n="articles.categories.success">Success Stories</a></li>
+                        <li><a href="/articles?category=mistakes" data-i18n="articles.categories.mistakes">Common Mistakes</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,19 +91,20 @@
                 </div>
                 <div class="footer-section">
                     <h3>About Us</h3>
-                    <p>KetoGuru is dedicated to providing expert guidance and resources for those interested in the ketogenic lifestyle.</p>
+                    <p>KetoElevate is dedicated to providing expert guidance and resources for those interested in the ketogenic lifestyle.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: info@ketoguru.com</p>
+                    <p>Email: info@ketoelevate.com</p>
                     <p>Phone: 555-1234</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 KetoGuru. All rights reserved.</p>
+                <p>&copy; 2023 KetoElevate. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <script src="/js/articles.js"></script>
+    <script src="js/articles.js"></script>
+    <script src="js/language.js"></script>
 </body>
 </html> 
