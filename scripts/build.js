@@ -36,8 +36,10 @@ filesToMove.forEach(file => {
     // Copy file if it exists
     if (fs.existsSync(sourcePath)) {
         fs.copyFileSync(sourcePath, destPath);
+        console.log(`Copied ${file}`);
+    } else {
+        console.warn(`Warning: ${sourcePath} does not exist`);
     }
 });
 
-// Log completion
 console.log('Build completed successfully!'); 
