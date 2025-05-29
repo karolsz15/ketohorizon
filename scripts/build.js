@@ -2,50 +2,37 @@ const fs = require('fs');
 const path = require('path');
 
 // Create necessary directories
+const languages = ['es', 'zh'];
 const dirs = ['css', 'js', 'images'];
+
+// Create base directories
 dirs.forEach(dir => {
-    if (!fs.existsSync(dir)){
+    if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
 });
 
-// Define files to copy
-const filesToMove = [
-    'index.html',
-    'articles.html',
-    'recipes.html',
-    'ebooks.html',
-    '404.html',
-    'css/styles.css',
-    'js/articles.js',
-    'js/recipes.js',
-    'js/redirect.js'
-];
+// Create language directories
+languages.forEach(lang => {
+    if (!fs.existsSync(lang)) {
+        fs.mkdirSync(lang, { recursive: true });
+    }
+});
 
-// Copy files
-filesToMove.forEach(file => {
-    const sourcePath = path.join('public', file);
-    const destPath = file;
+// Copy files to language directories
+languages.forEach(lang => {
+    const files = [
+        'index.html',
+        'articles.html',
+        'recipes.html',
+        'ebooks.html'
+    ];
     
-    // Create directories if they don't exist
-    const dir = path.dirname(destPath);
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-    
-    // Copy file if it exists
-    if (fs.existsSync(sourcePath)) {
-        fs.copyFileSync(sourcePath, destPath);
-        console.log(`Copied ${file}`);
-    } else {
-        console.warn(`Warning: ${sourcePath} does not exist`);
-        // If the file doesn't exist in public/, check if it exists in the root
+    files.forEach(file => {
         if (fs.existsSync(file)) {
-            console.log(`File ${file} already exists in root`);
-        } else {
-            console.error(`Error: ${file} not found in public/ or root`);
+            fs.copyFileSync(file, path.join(lang, file));
         }
-    }
+    });
 });
 
 console.log('Build completed successfully!'); 

@@ -317,4 +317,67 @@ footer {
     margin-top: 30px;
     border-top: 1px solid #444;
     color: #ccc;
+}
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+    margin-left: 20px;
+    z-index: 2000; /* Ensure it's above other elements */
+}
+
+.current-lang {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.current-lang:hover {
+    background: #f5f5f5;
+}
+
+.lang-icon {
+    margin-right: 5px;
+}
+
+.language-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    min-width: 150px;
+    z-index: 2000;
+}
+
+.language-menu.show {
+    display: block;
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.lang-option:hover {
+    background: #f5f5f5;
+}
+
+.lang-flag {
+    margin-right: 10px;
+    font-size: 1.2em; /* Make flags slightly larger */
 } 
