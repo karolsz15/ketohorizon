@@ -22,30 +22,49 @@ const filesToMove = [
     'js/redirect.js'
 ];
 
-// Copy files
-filesToMove.forEach(file => {
-    const sourcePath = path.join('public', file);
-    const destPath = file;
-    
-    // Create directories if they don't exist
-    const dir = path.dirname(destPath);
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-    
-    // Copy file if it exists
-    if (fs.existsSync(sourcePath)) {
-        fs.copyFileSync(sourcePath, destPath);
-        console.log(`Copied ${file}`);
-    } else {
-        console.warn(`Warning: ${sourcePath} does not exist`);
-        // If the file doesn't exist in public/, check if it exists in the root
-        if (fs.existsSync(file)) {
-            console.log(`File ${file} already exists in root`);
-        } else {
-            console.error(`Error: ${file} not found in public/ or root`);
+const languages = ['es', 'zh'];
+
+// Create language directories
+languages.forEach(lang => {
+    const langDirs = ['css', 'js', 'images'].map(dir => path.join(lang, dir));
+    langDirs.forEach(dir => {
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
         }
-    }
+    });
+});
+
+const translations = {
+    es: require('./translations/es.json'),
+    zh: require('./translations/zh.json')
+};
+
+// Create language directories and copy files
+languages.forEach(lang => {
+    // Create directories
+    const langDirs = ['css', 'js', 'images'].map(dir => path.join(lang, dir));
+    langDirs.forEach(dir => {
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+    });
+
+    // Copy and translate files
+    filesToMove.forEach(file => {
+        if (file.endsWith('.html')) {
+            // Translate HTML content
+            const content = fs.readFileSync(file, 'utf8');
+            const translatedContent = translateContent(content, translations[lang]);
+            fs.writeFileSync(path.join(lang, file), translatedContent);
+        } else {
+            // Copy other files as-is
+            const sourcePath = file;
+            const destPath = path.join(lang, file);
+            if (fs.existsSync(sourcePath)) {
+                fs.copyFileSync(sourcePath, destPath);
+            }
+        }
+    });
 });
 
 console.log('Build completed successfully!'); 
