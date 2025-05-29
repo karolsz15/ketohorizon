@@ -5,7 +5,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('./'));
 
 // MongoDB connection with error handling
 mongoose.connect('mongodb://localhost/ketoguru')
