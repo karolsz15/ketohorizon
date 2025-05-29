@@ -94,7 +94,7 @@ const resources = {
                 "stories": {
                     "sarah": {
                         "name": "Sarah's Transformation",
-                        "quote": "KetoElevate changed my life. I've lost 50 pounds and feel more energetic than ever!"
+                        "quote": "KetoHorizon changed my life. I've lost 50 pounds and feel more energetic than ever!"
                     },
                     "mike": {
                         "name": "Mike's Journey",
@@ -136,14 +136,14 @@ const resources = {
                 },
                 "about": {
                     "title": "About Us",
-                    "description": "KetoElevate is dedicated to providing expert guidance and resources for those interested in the ketogenic lifestyle. Our mission is to help you transform your health and achieve your weight loss goals."
+                    "description": "KetoHorizon is dedicated to providing expert guidance and resources for those interested in the ketogenic lifestyle. Our mission is to help you transform your health and achieve your weight loss goals."
                 },
                 "contact": {
                     "title": "Contact",
-                    "email": "Email: info@ketoelevate.com",
+                    "email": "Email: info@ketohorizon.com",
                     "phone": "Phone: 555-1234"
                 },
-                "copyright": "© 2023 KetoElevate. All rights reserved."
+                "copyright": "© 2023 KetoHorizon. All rights reserved."
             }
         }
     },
@@ -241,7 +241,7 @@ const resources = {
                 "stories": {
                     "sarah": {
                         "name": "La Transformación de Sarah",
-                        "quote": "KetoElevate cambió mi vida. ¡He perdido 23 kilos y me siento más energética que nunca!"
+                        "quote": "KetoHorizon cambió mi vida. ¡He perdido 23 kilos y me siento más energética que nunca!"
                     },
                     "mike": {
                         "name": "El Viaje de Mike",
@@ -283,14 +283,14 @@ const resources = {
                 },
                 "about": {
                     "title": "Sobre Nosotros",
-                    "description": "KetoElevate está dedicado a proporcionar orientación experta y recursos para aquellos interesados en el estilo de vida cetogénico. Nuestra misión es ayudarte a transformar tu salud y alcanzar tus objetivos de pérdida de peso."
+                    "description": "KetoHorizon está dedicado a proporcionar orientación experta y recursos para aquellos interesados en el estilo de vida cetogénico. Nuestra misión es ayudarte a transformar tu salud y alcanzar tus objetivos de pérdida de peso."
                 },
                 "contact": {
                     "title": "Contacto",
-                    "email": "Correo: info@ketoelevate.com",
+                    "email": "Correo: info@ketohorizon.com",
                     "phone": "Teléfono: 555-1234"
                 },
-                "copyright": "© 2023 KetoElevate. Todos los derechos reservados."
+                "copyright": "© 2023 KetoHorizon. Todos los derechos reservados."
             }
         }
     },
@@ -388,7 +388,7 @@ const resources = {
                 "stories": {
                     "sarah": {
                         "name": "Sarah的转变",
-                        "quote": "KetoElevate改变了我的生活。我减掉了23公斤，感觉比以往更有活力！"
+                        "quote": "KetoHorizon改变了我的生活。我减掉了23公斤，感觉比以往更有活力！"
                     },
                     "mike": {
                         "name": "Mike的旅程",
@@ -430,14 +430,14 @@ const resources = {
                 },
                 "about": {
                     "title": "关于我们",
-                    "description": "KetoElevate致力于为对生酮生活方式感兴趣的人提供专业指导和资源。我们的使命是帮助您改善健康状况并实现减重目标。"
+                    "description": "KetoHorizon致力于为对生酮生活方式感兴趣的人提供专业指导和资源。我们的使命是帮助您改善健康状况并实现减重目标。"
                 },
                 "contact": {
                     "title": "联系方式",
-                    "email": "邮箱：info@ketoelevate.com",
+                    "email": "邮箱：info@ketohorizon.com",
                     "phone": "电话：555-1234"
                 },
-                "copyright": "© 2023 KetoElevate。保留所有权利。"
+                "copyright": "© 2023 KetoHorizon。保留所有权利。"
             }
         }
     }

@@ -3,32 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KetoGuru - Recipes</title>
+    <title>KetoElevate - Recipes</title>
     <meta name="description" content="Delicious ketogenic recipes for every meal">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.16/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">KetoGuru</div>
+            <div class="logo">KetoElevate</div>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/articles">Articles</a></li>
-                <li><a href="/recipes" class="nav-active">Recipes</a></li>
-                <li><a href="/ebooks">Ebooks</a></li>
+                <li><a href="index.html" data-i18n="navigation.home">Home</a></li>
+                <li><a href="articles.html" data-i18n="navigation.articles">Articles</a></li>
+                <li><a href="recipes.html" class="nav-active" data-i18n="navigation.recipes">Recipes</a></li>
+                <li><a href="ebooks.html" data-i18n="navigation.ebooks">Ebooks</a></li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+            <div class="language-selector">
+                <button type="button" class="current-lang">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="language-menu" id="languageMenu">
+                    <a href="#" class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇺🇸</span>
+                        English
+                    </a>
+                    <a href="#" class="lang-option" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        Español
+                    </a>
+                    <a href="#" class="lang-option" data-lang="zh">
+                        <span class="lang-flag">🇨🇳</span>
+                        中文
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <div class="page-header">
         <div class="container">
-            <h1>Keto Recipes</h1>
-            <p>Delicious and easy ketogenic recipes for every meal</p>
+            <h1 data-i18n="recipes.title">Keto Recipes</h1>
+            <p data-i18n="recipes.subtitle">Delicious and easy ketogenic recipes for every meal</p>
         </div>
     </div>
 
@@ -41,6 +63,7 @@
     </section>
 
     <!-- Include footer here -->
-    <script src="/js/recipes.js"></script>
+    <script src="js/recipes.js"></script>
+    <script src="js/language.js"></script>
 </body>
 </html> 
