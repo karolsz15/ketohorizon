@@ -25,86 +25,41 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
-const ArticlesSection = styled.section`
-  padding: 60px 0;
-  background: #f8f9fa;
-`;
-
 const ArticlesGrid = styled.div`
   max-width: ${props => props.theme.layout.maxWidth};
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 `;
 
-const CategoryFilter = styled.div`
-  max-width: ${props => props.theme.layout.maxWidth};
-  margin: 0 auto 40px;
-  padding: 0 20px;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-`;
-
-const CategoryButton = styled.button`
-  background: ${props => props.isActive ? props.theme.colors.primary : 'transparent'};
-  color: ${props => props.isActive ? 'white' : props.theme.colors.text};
-  border: 2px solid ${props => props.theme.colors.primary};
-  padding: 8px 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s;
-
-  &:hover {
-    background: ${props => props.theme.colors.primary};
-    color: white;
-  }
-`;
-
 const Articles = () => {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = React.useState('all');
-
-  const categories = [
-    { id: 'all', labelKey: 'articles.categories.all' },
-    { id: 'basics', labelKey: 'articles.categories.basics' },
-    { id: 'nutrition', labelKey: 'articles.categories.nutrition' },
-    { id: 'lifestyle', labelKey: 'articles.categories.lifestyle' }
-  ];
 
   const articles = [
     {
-      id: 1,
-      category: 'basics',
+      id: 'keto101',
+      image: '/images/keto-basics.jpg',
+      titleKey: 'articles.keto101.title',
+      descriptionKey: 'articles.keto101.introduction.content',
+      ctaKey: 'articles.essentials.cta'
+    },
+    {
+      id: 'essentials',
+      image: '/images/keto-essentials.jpg',
       titleKey: 'articles.essentials.title',
       descriptionKey: 'articles.essentials.description',
-      ctaKey: 'articles.essentials.cta',
-      image: '/images/keto-basics.jpg'
+      ctaKey: 'articles.essentials.cta'
     },
     {
-      id: 2,
-      category: 'nutrition',
+      id: 'ingredients',
+      image: '/images/keto-ingredients.jpg',
       titleKey: 'articles.ingredients.title',
       descriptionKey: 'articles.ingredients.description',
-      ctaKey: 'articles.ingredients.cta',
-      image: '/images/keto-ingredients.jpg'
-    },
-    {
-      id: 3,
-      category: 'lifestyle',
-      titleKey: 'articles.lifestyle.title',
-      descriptionKey: 'articles.lifestyle.description',
-      ctaKey: 'articles.lifestyle.cta',
-      image: '/images/keto-lifestyle.jpg'
+      ctaKey: 'articles.ingredients.cta'
     }
-    // Add more articles as needed
   ];
-
-  const filteredArticles = activeCategory === 'all' 
-    ? articles 
-    : articles.filter(article => article.category === activeCategory);
 
   return (
     <ArticlesContainer>
@@ -114,25 +69,14 @@ const Articles = () => {
         </HeroContent>
       </Hero>
 
-      <ArticlesSection>
-        <CategoryFilter>
-          {categories.map(category => (
-            <CategoryButton
-              key={category.id}
-              isActive={activeCategory === category.id}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              {t(category.labelKey)}
-            </CategoryButton>
-          ))}
-        </CategoryFilter>
-
-        <ArticlesGrid>
-          {filteredArticles.map(article => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
-        </ArticlesGrid>
-      </ArticlesSection>
+      <ArticlesGrid>
+        {articles.map(article => (
+          <ArticleCard
+            key={article.id}
+            {...article}
+          />
+        ))}
+      </ArticlesGrid>
     </ArticlesContainer>
   );
 };

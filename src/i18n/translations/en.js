@@ -34,6 +34,43 @@ export default {
       title: 'Maintaining a Keto Lifestyle',
       description: 'Tips and strategies for maintaining a sustainable ketogenic lifestyle.',
       cta: 'Read More'
+    },
+    keto101: {
+      title: 'Keto 101: What Is the Ketogenic Diet and How Does It Work?',
+      introduction: {
+        title: 'Introduction',
+        content: 'The ketogenic diet, or "keto" for short, is a high-fat, low-carbohydrate eating plan that has become popular for weight loss, mental clarity, and improved energy levels. But what exactly is it, and how does it work?'
+      },
+      what_is_keto: {
+        title: 'What Is the Ketogenic Diet?',
+        content: 'The keto diet focuses on reducing your intake of carbs and increasing fats. Typically, your body uses glucose (from carbs) as its main source of energy. On keto, when carbs are drastically reduced, your body enters a state called ketosis, where it starts burning fat for fuel instead.'
+      },
+      how_ketosis_works: {
+        title: 'How Does Ketosis Work?',
+        content: 'When you eat very few carbs, your liver begins converting fat into molecules called ketones, which your body and brain can use for energy. This shift can help people lose weight, improve mental focus, and maintain steady energy without sugar crashes.'
+      },
+      benefits: {
+        title: 'Benefits of the Keto Diet',
+        list: [
+          'Weight Loss: Burns fat for fuel',
+          'Steady Energy: No blood sugar spikes',
+          'Appetite Control: Fats keep you full longer',
+          'Mental Clarity: Many users report improved focus'
+        ]
+      },
+      foods: {
+        title: 'What Can You Eat?',
+        allowed: [
+          'Healthy fats (avocados, olive oil, butter)',
+          'Meats and fish',
+          'Low-carb vegetables (spinach, broccoli)'
+        ],
+        avoid: 'Avoid bread, pasta, sugar, and most fruits'
+      },
+      conclusion: {
+        title: 'Is It Right for You?',
+        content: 'The keto diet isn\'t for everyone. It works well for some, especially those with insulin resistance, but should be approached with research or medical advice, especially for people with health conditions.'
+      }
     }
   },
   success_stories: {
@@ -72,23 +109,44 @@ export default {
     hero: {
       title: 'Keto Ebooks Collection'
     },
-    beginner_guide: {
-      title: 'Complete Keto Beginner Guide',
-      description: 'Everything you need to know to start your keto journey successfully.',
-      price: '$19.99',
-      cta: 'Buy Now'
-    },
-    meal_plan: {
-      title: '28-Day Keto Meal Plan',
-      description: 'A complete 4-week meal plan with shopping lists and prep guides.',
+    science: {
+      title: 'The Science of Keto',
+      description: 'A deep dive into the biology and science of ketosis, fat adaptation, ketone production, and how keto affects metabolism, brain health, and hormones.',
       price: '$24.99',
       cta: 'Buy Now'
     },
-    recipes: {
-      title: '100+ Keto Recipes',
-      description: 'A comprehensive collection of delicious keto-friendly recipes.',
+    meal_prep: {
+      title: 'Keto Meal Prep Made Easy',
+      description: 'A practical ebook for busy people featuring batch-cooking, weekly shopping lists, and time-saving strategies to stay in ketosis without stress.',
       price: '$29.99',
       cta: 'Buy Now'
+    },
+    bundle: {
+      title: 'Complete Keto Bundle',
+      description: 'Get both The Science of Keto and Keto Meal Prep Made Easy at a 25% discount!',
+      price: '$39.99',
+      cta: 'Buy Now'
     }
+  },
+  comments: {
+    title: 'Comments',
+    nicknameLabel: 'Nickname',
+    nicknamePlaceholder: 'Enter your nickname',
+    commentLabel: 'Comment',
+    placeholder: 'Write your comment...',
+    replyPlaceholder: 'Write your reply...',
+    submit: 'Post Comment',
+    reply: 'Post Reply',
+    replyButton: 'Reply',
+    upvoteButton: 'Upvote',
+    upvoteCount: '{{count}} upvotes',
+    upvoteCountOne: '1 upvote',
+    alreadyUpvoted: 'Upvoted'
+  },
+  sharing: {
+    title: 'Share this article',
+    twitter: 'Share on Twitter',
+    facebook: 'Share on Facebook',
+    instagram: 'Share on Instagram'
   }
 }; 
