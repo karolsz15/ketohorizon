@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { getArticles } from '../services/api';
 import ArticleCard from '../components/articles/ArticleCard';
 
 const HomeContainer = styled.div`
@@ -92,32 +94,40 @@ const StoryQuote = styled.p`
   color: ${props => props.theme.colors.textLight};
 `;
 
+const LatestArticles = styled.section`
+  max-width: ${props => props.theme.layout.maxWidth};
+  margin: 60px auto;
+  padding: 0 20px;
+`;
+
+const LoadingContainer = styled.div`
+  text-align: center;
+  padding: 40px;
+  color: ${props => props.theme.colors.textLight};
+`;
+
 const Home = () => {
   const { t } = useTranslation();
+  const { lang = 'en' } = useParams();
+  const [latestArticles, setLatestArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const articles = [
-    {
-      id: 1,
-      titleKey: 'articles.essentials.title',
-      descriptionKey: 'articles.essentials.description',
-      ctaKey: 'articles.essentials.cta',
-      image: 'path/to/image1.jpg'
-    },
-    {
-      id: 2,
-      titleKey: 'articles.ingredients.title',
-      descriptionKey: 'articles.ingredients.description',
-      ctaKey: 'articles.ingredients.cta',
-      image: 'path/to/image2.jpg'
-    },
-    {
-      id: 3,
-      titleKey: 'articles.recipes.title',
-      descriptionKey: 'articles.recipes.description',
-      ctaKey: 'articles.recipes.cta',
-      image: 'path/to/image3.jpg'
-    }
-  ];
+  useEffect(() => {
+    const fetchLatestArticles = async () => {
+      try {
+        setLoading(true);
+        const data = await getArticles(lang);
+        // Get only the 3 most recent articles
+        setLatestArticles(data.slice(0, 3));
+      } catch (error) {
+        console.error('Error fetching latest articles:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLatestArticles();
+  }, [lang]);
 
   const successStories = [
     {
@@ -141,14 +151,38 @@ const Home = () => {
         </HeroContent>
       </Hero>
 
-      <Section>
-        <SectionTitle>{t('articles.title')}</SectionTitle>
-        <ArticlesGrid>
-          {articles.map(article => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
-        </ArticlesGrid>
-      </Section>
+      <LatestArticles>
+        <SectionTitle>{t('home.latestArticles')}</SectionTitle>
+        {loading ? (
+          <LoadingContainer>{t('common.loading')}...</LoadingContainer>
+        ) : (
+          <ArticlesGrid>
+            {latestArticles.map(article => {
+              if (!article?.attributes) return null;
+
+              const {
+                id,
+                attributes: {
+                  slug,
+                  title,
+                  excerpt
+                }
+              } = article;
+
+              return (
+                <ArticleCard
+                  key={id}
+                  id={slug || id}
+                  image="/images/default-article.jpg"
+                  title={title || t('common.untitled')}
+                  description={excerpt || t('common.noDescription')}
+                  ctaKey="articles.readMore"
+                />
+              );
+            })}
+          </ArticlesGrid>
+        )}
+      </LatestArticles>
 
       <SuccessStories>
         <SectionTitle>{t('success_stories.title')}</SectionTitle>

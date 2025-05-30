@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import CommentSection from '../comments/CommentSection';
 import SocialShare from './SocialShare';
+import { getArticle } from '../../services/api';
 
 const ArticleContainer = styled.article`
   max-width: ${props => props.theme.layout.maxWidth};
@@ -28,11 +29,15 @@ const SectionTitle = styled.h2`
   color: ${props => props.theme.colors.text};
 `;
 
-const Content = styled.p`
+const Content = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
   color: ${props => props.theme.colors.textLight};
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+
+  p {
+    margin-bottom: 20px;
+  }
 `;
 
 const List = styled.ul`
@@ -56,16 +61,60 @@ const ListItem = styled.li`
   }
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: ${props => props.theme.colors.textLight};
+`;
+
+const ErrorContainer = styled(LoadingContainer)`
+  color: ${props => props.theme.colors.error};
+`;
+
 const ArticlePage = () => {
   const { t } = useTranslation();
-  const { id } = useParams();
+  const { id, lang = 'en' } = useParams();
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const article = t(`articles.${id}`, { returnObjects: true });
-  
-  if (!article || !article.title) {
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        setLoading(true);
+        const data = await getArticle(id, lang);
+        console.log('Fetched article:', data); // Debug log
+        setArticle(data);
+      } catch (err) {
+        console.error('Error fetching article:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticle();
+  }, [id, lang]);
+
+  if (loading) {
     return (
       <ArticleContainer>
-        <Title>Article not found</Title>
+        <LoadingContainer>
+          {t('common.loading')}...
+        </LoadingContainer>
+      </ArticleContainer>
+    );
+  }
+
+  if (error || !article) {
+    return (
+      <ArticleContainer>
+        <ErrorContainer>
+          {error || t('articles.notFound')}
+        </ErrorContainer>
       </ArticleContainer>
     );
   }
@@ -73,63 +122,13 @@ const ArticlePage = () => {
   return (
     <ArticleContainer>
       <Title>{article.title}</Title>
-
-      {article.introduction && (
-        <Section>
-          <SectionTitle>{article.introduction.title}</SectionTitle>
-          <Content>{article.introduction.content}</Content>
-        </Section>
-      )}
-
-      {article.what_is_keto && (
-        <Section>
-          <SectionTitle>{article.what_is_keto.title}</SectionTitle>
-          <Content>{article.what_is_keto.content}</Content>
-        </Section>
-      )}
-
-      {article.how_ketosis_works && (
-        <Section>
-          <SectionTitle>{article.how_ketosis_works.title}</SectionTitle>
-          <Content>{article.how_ketosis_works.content}</Content>
-        </Section>
-      )}
-
-      {article.benefits && (
-        <Section>
-          <SectionTitle>{article.benefits.title}</SectionTitle>
-          <List>
-            {article.benefits.list.map((benefit, index) => (
-              <ListItem key={index}>{benefit}</ListItem>
-            ))}
-          </List>
-        </Section>
-      )}
-
-      {article.foods && (
-        <Section>
-          <SectionTitle>{article.foods.title}</SectionTitle>
-          <List>
-            {article.foods.allowed.map((food, index) => (
-              <ListItem key={index}>{food}</ListItem>
-            ))}
-          </List>
-          <Content style={{ marginTop: '20px' }}>{article.foods.avoid}</Content>
-        </Section>
-      )}
-
-      {article.conclusion && (
-        <Section>
-          <SectionTitle>{article.conclusion.title}</SectionTitle>
-          <Content>{article.conclusion.content}</Content>
-        </Section>
-      )}
-
+      <Content>
+        {article.content}
+      </Content>
       <SocialShare 
         url={window.location.href}
         title={article.title}
       />
-
       <CommentSection articleId={id} />
     </ArticleContainer>
   );

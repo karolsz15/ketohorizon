@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import ArticleCard from '../components/articles/ArticleCard';
+import { getArticles } from '../services/api';
 
 const ArticlesContainer = styled.div`
   padding-top: ${props => props.theme.layout.headerHeight};
@@ -34,32 +36,78 @@ const ArticlesGrid = styled.div`
   gap: 30px;
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: ${props => props.theme.colors.textLight};
+`;
+
+const ErrorContainer = styled(LoadingContainer)`
+  color: ${props => props.theme.colors.error};
+`;
+
 const Articles = () => {
   const { t } = useTranslation();
+  const { lang = 'en' } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const articles = [
-    {
-      id: 'keto101',
-      image: '/images/keto-basics.jpg',
-      titleKey: 'articles.keto101.title',
-      descriptionKey: 'articles.keto101.introduction.content',
-      ctaKey: 'articles.essentials.cta'
-    },
-    {
-      id: 'essentials',
-      image: '/images/keto-essentials.jpg',
-      titleKey: 'articles.essentials.title',
-      descriptionKey: 'articles.essentials.description',
-      ctaKey: 'articles.essentials.cta'
-    },
-    {
-      id: 'ingredients',
-      image: '/images/keto-ingredients.jpg',
-      titleKey: 'articles.ingredients.title',
-      descriptionKey: 'articles.ingredients.description',
-      ctaKey: 'articles.ingredients.cta'
-    }
-  ];
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        setLoading(true);
+        console.log('Fetching articles for language:', lang); // Debug log
+        const data = await getArticles(lang);
+        console.log('Received articles:', data); // Debug log
+        setArticles(data || []);
+      } catch (err) {
+        console.error('Error fetching articles:', err);
+        setError(err.message);
+        setArticles([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, [lang]);
+
+  // Add debug log for render
+  console.log('Current articles state:', articles);
+
+  if (loading) {
+    return (
+      <ArticlesContainer>
+        <Hero>
+          <HeroContent>
+            <Title>{t('articles.hero.title')}</Title>
+          </HeroContent>
+        </Hero>
+        <LoadingContainer>
+          {t('common.loading')}...
+        </LoadingContainer>
+      </ArticlesContainer>
+    );
+  }
+
+  if (error) {
+    return (
+      <ArticlesContainer>
+        <Hero>
+          <HeroContent>
+            <Title>{t('articles.hero.title')}</Title>
+          </HeroContent>
+        </Hero>
+        <ErrorContainer>
+          {t('common.error')}: {error}
+        </ErrorContainer>
+      </ArticlesContainer>
+    );
+  }
 
   return (
     <ArticlesContainer>
@@ -70,12 +118,37 @@ const Articles = () => {
       </Hero>
 
       <ArticlesGrid>
-        {articles.map(article => (
-          <ArticleCard
-            key={article.id}
-            {...article}
-          />
-        ))}
+        {articles && articles.length > 0 ? (
+          articles.map(article => {
+            if (!article?.attributes) {
+              return null;
+            }
+
+            const {
+              id,
+              attributes: {
+                slug,
+                title,
+                excerpt
+              }
+            } = article;
+
+            return (
+              <ArticleCard
+                key={id}
+                id={slug || id}
+                image="/images/default-article.jpg"
+                title={title || t('common.untitled')}
+                description={excerpt || t('common.noDescription')}
+                ctaKey="articles.readMore"
+              />
+            );
+          })
+        ) : (
+          <LoadingContainer>
+            {t('articles.noArticles')}
+          </LoadingContainer>
+        )}
       </ArticlesGrid>
     </ArticlesContainer>
   );

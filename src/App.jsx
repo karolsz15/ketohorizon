@@ -30,13 +30,9 @@ const App = () => {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          {/* Redirect root to language-specific home */}
-          <Route 
-            path="/" 
-            element={<Navigate to={`/${getDefaultLanguage()}`} replace />} 
-          />
-
-          {/* Language-specific routes */}
+          {/* Redirect root to default language */}
+          <Route path="/" element={<Navigate to="/en" replace />} />
+          
           <Route path="/:lang" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="articles" element={<Articles />} />
@@ -45,11 +41,8 @@ const App = () => {
             <Route path="ebooks" element={<Ebooks />} />
           </Route>
 
-          {/* Redirect unknown languages to default language */}
-          <Route 
-            path="*" 
-            element={<Navigate to={`/${getDefaultLanguage()}`} replace />} 
-          />
+          {/* Redirect unknown paths to default language */}
+          <Route path="*" element={<Navigate to="/en" replace />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

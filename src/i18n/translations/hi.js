@@ -78,6 +78,9 @@ export default {
       }
     }
   },
+  home: {
+    latestArticles: 'नवीनतम लेख'
+  },
   success_stories: {
     title: 'सफलता की कहानियां',
     stories: {
