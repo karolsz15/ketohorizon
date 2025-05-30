@@ -52,7 +52,7 @@ const ReadMoreButton = styled(Link)`
   }
 `;
 
-const ArticleCard = ({ id, image, titleKey, descriptionKey, ctaKey }) => {
+const ArticleCard = ({ id, image, title, description, ctaKey }) => {
   const { t } = useTranslation();
   const { lang } = useParams();
 
@@ -60,8 +60,8 @@ const ArticleCard = ({ id, image, titleKey, descriptionKey, ctaKey }) => {
     <Card>
       <CardImage image={image} />
       <CardContent>
-        <CardTitle>{t(titleKey)}</CardTitle>
-        <CardDescription>{t(descriptionKey)}</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
         <ReadMoreButton to={`/${lang}/articles/${id}`}>{t(ctaKey)}</ReadMoreButton>
       </CardContent>
     </Card>

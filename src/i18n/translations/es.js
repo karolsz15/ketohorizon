@@ -78,6 +78,9 @@ export default {
       }
     }
   },
+  home: {
+    latestArticles: 'Últimos Artículos'
+  },
   success_stories: {
     title: 'Historias de Éxito',
     stories: {

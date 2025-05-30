@@ -78,6 +78,9 @@ export default {
       }
     }
   },
+  home: {
+    latestArticles: '最新文章'
+  },
   success_stories: {
     title: '成功故事',
     stories: {

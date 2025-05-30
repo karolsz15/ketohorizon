@@ -29,11 +29,15 @@ const SectionTitle = styled.h2`
   color: ${props => props.theme.colors.text};
 `;
 
-const Content = styled.p`
+const Content = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
   color: ${props => props.theme.colors.textLight};
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+
+  p {
+    margin-bottom: 20px;
+  }
 `;
 
 const List = styled.ul`
@@ -57,19 +61,36 @@ const ListItem = styled.li`
   }
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: ${props => props.theme.colors.textLight};
+`;
+
+const ErrorContainer = styled(LoadingContainer)`
+  color: ${props => props.theme.colors.error};
+`;
+
 const ArticlePage = () => {
   const { t } = useTranslation();
-  const { id, lang } = useParams();
+  const { id, lang = 'en' } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchArticle = async () => {
       try {
+        setLoading(true);
         const data = await getArticle(id, lang);
-        setArticle(data.attributes);
-      } catch (error) {
-        console.error('Error fetching article:', error);
+        console.log('Fetched article:', data); // Debug log
+        setArticle(data);
+      } catch (err) {
+        console.error('Error fetching article:', err);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -79,13 +100,31 @@ const ArticlePage = () => {
   }, [id, lang]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <ArticleContainer>
+        <LoadingContainer>
+          {t('common.loading')}...
+        </LoadingContainer>
+      </ArticleContainer>
+    );
+  }
+
+  if (error || !article) {
+    return (
+      <ArticleContainer>
+        <ErrorContainer>
+          {error || t('articles.notFound')}
+        </ErrorContainer>
+      </ArticleContainer>
+    );
   }
 
   return (
     <ArticleContainer>
       <Title>{article.title}</Title>
-      <Content dangerouslySetInnerHTML={{ __html: article.content }} />
+      <Content>
+        {article.content}
+      </Content>
       <SocialShare 
         url={window.location.href}
         title={article.title}

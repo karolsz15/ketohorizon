@@ -36,19 +36,38 @@ const ArticlesGrid = styled.div`
   gap: 30px;
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: ${props => props.theme.colors.textLight};
+`;
+
+const ErrorContainer = styled(LoadingContainer)`
+  color: ${props => props.theme.colors.error};
+`;
+
 const Articles = () => {
   const { t } = useTranslation();
-  const { lang } = useParams();
+  const { lang = 'en' } = useParams();
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
+        setLoading(true);
+        console.log('Fetching articles for language:', lang); // Debug log
         const data = await getArticles(lang);
-        setArticles(data);
-      } catch (error) {
-        console.error('Error fetching articles:', error);
+        console.log('Received articles:', data); // Debug log
+        setArticles(data || []);
+      } catch (err) {
+        console.error('Error fetching articles:', err);
+        setError(err.message);
+        setArticles([]);
       } finally {
         setLoading(false);
       }
@@ -57,8 +76,37 @@ const Articles = () => {
     fetchArticles();
   }, [lang]);
 
+  // Add debug log for render
+  console.log('Current articles state:', articles);
+
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <ArticlesContainer>
+        <Hero>
+          <HeroContent>
+            <Title>{t('articles.hero.title')}</Title>
+          </HeroContent>
+        </Hero>
+        <LoadingContainer>
+          {t('common.loading')}...
+        </LoadingContainer>
+      </ArticlesContainer>
+    );
+  }
+
+  if (error) {
+    return (
+      <ArticlesContainer>
+        <Hero>
+          <HeroContent>
+            <Title>{t('articles.hero.title')}</Title>
+          </HeroContent>
+        </Hero>
+        <ErrorContainer>
+          {t('common.error')}: {error}
+        </ErrorContainer>
+      </ArticlesContainer>
+    );
   }
 
   return (
@@ -70,16 +118,37 @@ const Articles = () => {
       </Hero>
 
       <ArticlesGrid>
-        {articles.map(article => (
-          <ArticleCard
-            key={article.id}
-            id={article.attributes.slug}
-            image={`${process.env.REACT_APP_STRAPI_URL}${article.attributes.coverImage.data.attributes.url}`}
-            titleKey={article.attributes.title}
-            descriptionKey={article.attributes.excerpt}
-            ctaKey="articles.essentials.cta"
-          />
-        ))}
+        {articles && articles.length > 0 ? (
+          articles.map(article => {
+            if (!article?.attributes) {
+              return null;
+            }
+
+            const {
+              id,
+              attributes: {
+                slug,
+                title,
+                excerpt
+              }
+            } = article;
+
+            return (
+              <ArticleCard
+                key={id}
+                id={slug || id}
+                image="/images/default-article.jpg"
+                title={title || t('common.untitled')}
+                description={excerpt || t('common.noDescription')}
+                ctaKey="articles.readMore"
+              />
+            );
+          })
+        ) : (
+          <LoadingContainer>
+            {t('articles.noArticles')}
+          </LoadingContainer>
+        )}
       </ArticlesGrid>
     </ArticlesContainer>
   );
