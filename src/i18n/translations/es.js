@@ -76,7 +76,8 @@ export default {
         title: '¿Es adecuada para ti?',
         content: 'No todos responden igual a la dieta keto. Es ideal para personas con resistencia a la insulina, pero se recomienda consultar con un profesional antes de comenzar.'
       }
-    }
+    },
+    readMore: 'Leer Más'
   },
   home: {
     latestArticles: 'Últimos Artículos'
@@ -108,10 +109,9 @@ export default {
     },
     contact: {
       title: 'Contacto',
-      email: 'Email: info@ketohorizon.com',
-      phone: 'Teléfono: 555-1234'
+      email: 'Email: info@ketohorizon.com'
     },
-    copyright: '© 2023 KetoHorizon. Todos los derechos reservados.'
+    copyright: '© 2025 KetoHorizon. Todos los derechos reservados.'
   },
   ebooks: {
     hero: {

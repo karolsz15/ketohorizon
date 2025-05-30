@@ -76,7 +76,8 @@ export default {
         title: '适合你吗？',
         content: '生酮饮食并非适合所有人。对于胰岛素抵抗的人效果较好，但开始前最好咨询医生或营养师。'
       }
-    }
+    },
+    readMore: '阅读更多'
   },
   home: {
     latestArticles: '最新文章'
@@ -108,10 +109,9 @@ export default {
     },
     contact: {
       title: '联系我们',
-      email: '邮箱：info@ketohorizon.com',
-      phone: '电话：555-1234'
+      email: '邮箱：info@ketohorizon.com'
     },
-    copyright: '© 2023 KetoHorizon。保留所有权利。'
+    copyright: '© 2025 KetoHorizon。保留所有权利。'
   },
   ebooks: {
     hero: {

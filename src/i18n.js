@@ -24,62 +24,26 @@ const resources = {
   },
   es: {
     translation: {
-      common: {
-        loading: 'Cargando',
-        error: 'Error',
-        untitled: 'Sin título',
-        noDescription: 'Sin descripción'
-      },
-      articles: {
-        hero: {
-          title: 'Artículos y Guías de Dieta Keto'
-        },
-        readMore: 'Leer Más',
-        noArticles: 'No se encontraron artículos'
-      },
       home: {
         latestArticles: 'Últimos Artículos'
-      }
+      },
+      // ... other translations
     }
   },
   zh: {
     translation: {
-      common: {
-        loading: '加载中',
-        error: '错误',
-        untitled: '无标题',
-        noDescription: '暂无描述'
-      },
-      articles: {
-        hero: {
-          title: '生酮饮食文章和指南'
-        },
-        readMore: '阅读更多',
-        noArticles: '未找到文章'
-      },
       home: {
         latestArticles: '最新文章'
-      }
+      },
+      // ... other translations
     }
   },
   hi: {
     translation: {
-      common: {
-        loading: 'लोड हो रहा है',
-        error: 'त्रुटि',
-        untitled: 'शीर्षकहीन',
-        noDescription: 'कोई विवरण उपलब्ध नहीं'
-      },
-      articles: {
-        hero: {
-          title: 'कीटो आहार लेख और गाइड'
-        },
-        readMore: 'और पढ़ें',
-        noArticles: 'कोई लेख नहीं मिला'
-      },
       home: {
         latestArticles: 'नवीनतम लेख'
-      }
+      },
+      // ... other translations
     }
   }
 };

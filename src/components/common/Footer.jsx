@@ -73,7 +73,6 @@ const Footer = () => {
         <FooterSection>
           <h3>{t('footer.contact.title')}</h3>
           <p>{t('footer.contact.email')}</p>
-          <p>{t('footer.contact.phone')}</p>
         </FooterSection>
       </FooterContent>
       <Copyright>
