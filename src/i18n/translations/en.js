@@ -19,6 +19,7 @@ export default {
       nutrition: 'Nutrition',
       lifestyle: 'Lifestyle'
     },
+    readMore: 'Read More'
   },
   home: {
     latestArticles: 'Latest Articles'
@@ -105,7 +106,7 @@ export default {
       email: 'Email: info@ketohorizon.com',
       phone: 'Phone: 555-1234'
     },
-    copyright: '© 2023 KetoHorizon. All rights reserved.'
+    copyright: '© 2025 KetoHorizon. All rights reserved.'
   },
   ebooks: {
     hero: {
